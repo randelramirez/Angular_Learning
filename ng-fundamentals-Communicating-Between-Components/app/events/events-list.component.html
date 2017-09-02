@@ -1,0 +1,19 @@
+<div>
+    <h2>Upcoming Angular 2 Events</h2>
+    <hr>
+    <!-- <event-thumbnail #thumbnail [event]="event" (eventClick)="handleEventClicked($event)"></event-thumbnail> -->
+    <event-thumbnail ref-thumbnail [event]="event" (eventClick)="handleEventClicked($event)"></event-thumbnail>
+      <!-- [event] refers to an input parameter/property inside of EventThumbnail component class, while the value being assigned ="event" was
+    was declared inside this component class  -->
+    <!-- [event] means that the component<event-thumbnail></event-thumbnail> has an input parameter named event  -->
+    
+
+    <h3>{{thumbnail.someProperty}}</h3>
+    <!-- Bind from a public child component property  -->
+    <button (click)="thumbnail.logFoo()">Log Foo</button> 
+        <!-- using template variables declared as #thumbnail or ref-thumbnail
+        we can call methods of child components from a parent component, logFoo is a method inside the EventThumbnaiComponent 
+        In some ways this is more simple than @Input and @Output parameters
+        -->
+  
+</div>
