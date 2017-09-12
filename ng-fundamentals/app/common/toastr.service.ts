@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 declare let toastr: any;
 
 @Injectable()
-export class ToastrService {
+export class ToastrServices {
 
         success(message: string, title?:string){
             toastr.success(message, title);
