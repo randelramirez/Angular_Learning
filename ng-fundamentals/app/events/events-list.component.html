@@ -1,0 +1,12 @@
+<div>
+  <h2>Upcoming Angular 2 Events</h2>
+  <hr>
+  <div class="row">
+    <div *ngFor="let event of events" class="col-md-5">
+      <event-thumbnail [event]="event" (click)="handleThumbnailClick(event.name)" ></event-thumbnail>
+      <!-- [event] refers to an input parameter/property inside of EventThumbnail component class, while the value being assigned ="event" was
+    was declared inside this component class  -->
+      <!-- [event] means that the component<event-thumbnail></event-thumbnail> has an input parameter named event  -->
+    </div>
+  </div>
+</div>
