@@ -28,8 +28,24 @@
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
+            <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/user/login']">Login</a>
             <!-- profile is a route inside user module, see route.ts and user.routes.ts -->
-            <a [routerLink]="['/user/profile']">Welcome John</a>
+            <a *ngIf="authService.isAuthenticated()" [routerLink]="['/user/profile']">
+                Welcome {{authService.currentUser.firstName}}
+              </a>
+            <!-- Angular 4 if-else, this is working -->
+            <!-- 
+              <a *ngIf="!authService.isAuthenticated() else userNameLabel" [routerLink]="['/user/login']" >Login</a>
+              <ng-template #userNameLabel> <a [routerLink]="['/user/profile']">
+                  Welcome {{authService.currentUser.firstName}}
+                </a></ng-template> -->
+
+                <!-- same as the one above, just using a reverse logic, this is testing against isAuthenticated = true -->
+            <!-- <a *ngIf="authService.isAuthenticated() else login" [routerLink]="['/user/profile']">
+                  Welcome {{authService.currentUser.firstName}}</a>
+            <ng-template #login>
+              <a [routerLink]="['/user/login']">Login</a>
+            </ng-template> -->
           </li>
         </ul>
       </div>

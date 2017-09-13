@@ -1,12 +1,17 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
 import { userRoutes } from "./user.routes";
 import { ProfileComponent } from "./profile.component";
+import { LoginComponent } from "./login.component";
 
+// note, this module is lazily-loaded, this module is imported on app.module
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(userRoutes)],
-    declarations: [ProfileComponent],
+    imports: [CommonModule,
+        RouterModule.forChild(userRoutes),
+        FormsModule],
+    declarations: [ProfileComponent, LoginComponent],
     providers: []
 })
 export class UserModule {

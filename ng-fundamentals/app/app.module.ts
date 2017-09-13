@@ -16,6 +16,11 @@ import { ToastrService } from "./common/toastr.service";
 import { appRoutes } from "./routes";
 import { Error404Component } from "./errors/404.component";
 
+// registered here so that modules outside of the user module can also access this, 
+// this is already shared on user module so no need to register this on that module
+import { AuthService } from "./user/auth.service"; 
+
+
 @NgModule({
   imports: [BrowserModule,
     RouterModule.forRoot(appRoutes)],
@@ -35,7 +40,8 @@ import { Error404Component } from "./errors/404.component";
     ToastrService,
     EventRouteActivator,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
-    EventListResolverService],
+    EventListResolverService,
+  AuthService],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
