@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { EventsAppComponent } from './events/events-app.component';
 import {
@@ -18,12 +19,14 @@ import { Error404Component } from "./errors/404.component";
 
 // registered here so that modules outside of the user module can also access this, 
 // this is already shared on user module so no need to register this on that module
-import { AuthService } from "./user/auth.service"; 
+import { AuthService } from "./user/auth.service";
 
 
 @NgModule({
   imports: [BrowserModule,
-    RouterModule.forRoot(appRoutes)],
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule],
   declarations: [EventsAppComponent,
     EventsListComponent,
     EventThumbnailComponent,
@@ -34,14 +37,14 @@ import { AuthService } from "./user/auth.service";
 
   /*
     Another way to define providers, using the long-hand approach
-    { provide: EventService, useValue: EventSerivce },, when provide: Type is requested useValue: Type is created
+    { provide: EventService, useValue: EventSerivce }, when provide: Type is requested useValue: Type is created
   */
   providers: [EventService,
     ToastrService,
     EventRouteActivator,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventListResolverService,
-  AuthService],
+    AuthService],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }

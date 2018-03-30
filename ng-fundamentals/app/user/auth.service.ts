@@ -16,9 +16,14 @@ export class AuthService {
         }
     }
 
-    isAuthenticated(){
+    isAuthenticated() {
         // !! converts to boolean, returns true if current user has value and false if not
         // returns true if the current user is set
         return !!this.currentUser;
+    }
+
+    updateCurrentUser(firstName: string, lastName: string) {
+        this.currentUser.firstName = firstName;
+        this.currentUser.lastName = lastName;
     }
 }

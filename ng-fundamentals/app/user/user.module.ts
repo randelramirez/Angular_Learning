@@ -1,16 +1,17 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { userRoutes } from "./user.routes";
 import { ProfileComponent } from "./profile.component";
 import { LoginComponent } from "./login.component";
 
-// note, this module is lazily-loaded, this module is imported on app.module
+// Note, this feature module or lazy module does not import BrowserModule unlike app.module
 @NgModule({
     imports: [CommonModule,
         RouterModule.forChild(userRoutes),
-        FormsModule],
+        FormsModule,
+        ReactiveFormsModule],
     declarations: [ProfileComponent, LoginComponent],
     providers: []
 })

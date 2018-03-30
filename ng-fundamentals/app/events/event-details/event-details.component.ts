@@ -3,6 +3,7 @@ import { EventService } from "../shared/event.service";
 import { ActivatedRoute } from "@angular/router";
 import { IEvent } from "../index";
 
+// note: this component doesn't have a selector since this won't be used as a child component from another page, this is used directly
 @Component({
     templateUrl: 'app/events/event-details/event-details.component.html',
     styles: [`
