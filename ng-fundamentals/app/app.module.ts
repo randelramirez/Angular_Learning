@@ -20,11 +20,13 @@ import { Error404Component } from "./errors/404.component";
 // registered here so that modules outside of the user module can also access this, 
 // this is already shared on user module so no need to register this on that module
 import { AuthService } from "./user/auth.service";
+// import { UserModule } from './user/user.module';
 
 
 @NgModule({
   imports: [BrowserModule,
     RouterModule.forRoot(appRoutes),
+    /*UserModule,*/ // eager load UserModule
     FormsModule,
     ReactiveFormsModule],
   declarations: [EventsAppComponent,

@@ -5,4 +5,4 @@ import { Routes } from "@angular/router";
 // user/profile (actual url for profile page)
 // check route.ts
 export const userRoutes: Routes = [{ path: 'profile', component: ProfileComponent },
-{path: 'login', component: LoginComponent}];
+{ path: 'login', component: LoginComponent }];
