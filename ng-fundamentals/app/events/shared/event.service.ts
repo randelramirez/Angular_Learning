@@ -8,15 +8,15 @@ export class EventService {
   //   return EVENTS;
   // }
 
-   getEvents() {
-     // new Subject() is a type of an Observable
-     let subject = new Subject();
-     setTimeout(() =>{
+  getEvents() {
+    // new Subject() is a type of an Observable
+    let subject = new Subject();
+    setTimeout(() => {
 
-       // EVENTS are added to the subject observable stream, subject.next(EVENTS);
-       subject.next(EVENTS);
-       subject.complete();
-     }, 2000);
+      // EVENTS are added to the subject observable stream, subject.next(EVENTS);
+      subject.next(EVENTS);
+      subject.complete();
+    }, 2000);
     return subject;
   }
 
@@ -24,16 +24,16 @@ export class EventService {
   getEventsObservable(): Observable<IEvent[]> {
     // a subject is an observable, see definition
     let subject = new Subject<IEvent[]>();
-    setTimeout(() =>{
+    setTimeout(() => {
 
       // EVENTS are added to the subject observable stream, subject.next(EVENTS);
       subject.next(EVENTS);
       subject.complete();
     }, 2000);
-   return subject;
- }
+    return subject;
+  }
 
-  
+
 
   getEvent(id: number): IEvent {
     return EVENTS.find(event => event.id === id);
@@ -51,7 +51,7 @@ export class EventService {
 
   }
 
-  saveEvent(event){
+  saveEvent(event) {
     event.id = 999;
     event.sessions = [];
     EVENTS.push(event);

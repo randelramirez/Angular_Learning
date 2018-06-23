@@ -15,6 +15,7 @@ export const appRoutes: Routes = [
 
     { path: 'events/new', component: CreateEventComponent, canDeactivate: ['canDeactivateCreateEvent'] },
     // for resolve, see EventsListComponent
+    /*calls EventListResolverService, after that it returns and assign it to 'events' which can then be accessed by the component through the route's property */
     { path: 'events', component: EventsListComponent, resolve: { events: EventListResolverService } },
     { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivator] },
     { path: '404', component: Error404Component },

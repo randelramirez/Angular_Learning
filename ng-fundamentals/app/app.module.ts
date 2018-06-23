@@ -44,7 +44,10 @@ import { AuthService } from "./user/auth.service";
   providers: [EventService,
     ToastrService,
     EventRouteActivator,
-    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtyState
+    },
     EventListResolverService,
     AuthService],
   bootstrap: [EventsAppComponent]
